@@ -9,7 +9,6 @@ import pandas as pd
 import json
 import numpy as np
 
-from io import StringIO
 
 
 
@@ -18,6 +17,12 @@ client_secret = "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"
 redirect_uri = "http://localhost:8501"
 
 st.header("Daydream CRM ")
+import streamlit as st
+from streamlit_modal import Modal
+
+import streamlit.components.v1 as components
+
+
 
 if __name__ == "__main__":
     app_name = '''
@@ -39,7 +44,7 @@ if __name__ == "__main__":
         user_id, user_email = login_info
         st.write(f"Welcome {user_email}")
 
-        # st.text('Upons clicking the check button an')
+            # st.text('Upons clicking the check button an')
         # Create connection
         conn = st.experimental_connection("your_connection_name", type=AirtableConnection)
 
@@ -77,23 +82,23 @@ if __name__ == "__main__":
 
         def dataframe_with_selections(df):
             df_with_selections = df.copy()
-            df_with_selections.insert(0, "Select", False)
+            df_with_selections.insert(2, "Request_an_Intro", False)
                     # Boolean to resize the dataframe, stored as a session state variable
-            st.checkbox("Use container width", value=True, key="use_container_width")
+            st.checkbox("Use container width", value=True,key="use_container_width")
 
             # Display the dataframe and allow the user to stretch the dataframe
             # across the full width of the container, based on the checkbox value
             edited_df = st.data_editor(
                 df_with_selections,
                 hide_index=True,
-                column_config={"Select": st.column_config.CheckboxColumn(required=True)},
+                column_config={"Request_an_Intro": st.column_config.CheckboxColumn(required=True)},
                 disabled=df.columns,
                 use_container_width=st.session_state.use_container_width
             )
             # st.dataframe(edited_df, use_container_width=st.session_state.use_container_width)
             
-            selected_indices = list(np.where(edited_df.Select)[0])
-            selected_rows = df[edited_df.Select]
+            selected_indices = list(np.where(edited_df.Request_an_Intro)[0])
+            selected_rows = df[edited_df.Request_an_Intro]
 
             return {"ggs":selected_indices ,"selected_rows": selected_rows}
 
@@ -104,12 +109,12 @@ if __name__ == "__main__":
 
         selection = dataframe_with_selections(df)
         # st.write(selection)
-        st.write("Your selection:")
+
         if not selection["selected_rows"].empty:
             last_row = selection["selected_rows"].iloc[-1]
             name= last_row[0]
             company= last_row[1]
-            st.write(last_row[1])
+            st.write("You have selected " +  last_row[0])
 
             import resend
 
@@ -122,14 +127,27 @@ if __name__ == "__main__":
                 "html": f"<strong>The user with the mail: {user_email} has requested introduction for the person with name: {name} and company: {company} </strong>",
             }
 
+            # st.success('Your intro has been requested', icon="✅")
+
+            st.toast('Your intro has been requested' , icon='😍')
+            
+            # custom_notification_box(icon='info', textDisplay='We are almost done with your registration...', externalLink='more info', url='#', styles=styles, key="foo")
+
             email = resend.Emails.send(params)
-            print(email)
+            params = {
+                "from": "Daydream CRM <chan@abubakr.tech>",
+                "to": [user_email],
+                "subject": "Introduction Requested!",
+                "html": f"<strong> Your Intro to the person with name: {name} and company: {company} is being worked on by the Daydream Team.</strong>",
+            }
+            # print(email)
+            email = resend.Emails.send(params)
+            
     
         selection["selected_rows"] = ""
         
         print(selection["selected_rows"])
         # st.write(selection["selected_rows"])
-        
         st.markdown(f"{len(table_records)} records retrieved")
         # st.write(table_records)   
         import pandas as pd
@@ -140,24 +158,5 @@ if __name__ == "__main__":
             return pd.DataFrame(
             table_records
             )
-        # # Boolean to resize the dataframe, stored as a session state variable
-        # st.checkbox("Use container width", value=True, key="use_container_width")
-
-        # df = load_data()
-
-        # # Display the dataframe and allow the user to stretch the dataframe
-        # # across the full width of the container, based on the checkbox value
-        # st.dataframe(df, use_container_width=st.session_state.use_container_width)
-        
-        # import resend
-
-        # resend.api_key = "re_RLPAZuRW_2SHh7RqehzPQmUk47DdaYDVx"
-
-        # r = resend.Emails.send({
-        # "from": "abubakrchan555@gmail.com",
-        # "to": "2020ce19@student.uet.edu.pk",
-        # "subject": "Hello World",
-        # "html": "<p>Congrats on sending your <strong>first email</strong>!</p>"
-        # })
 
 
