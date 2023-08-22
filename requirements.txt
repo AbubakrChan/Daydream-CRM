@@ -1,11 +1,12 @@
-streamlit>=1.22
-git+https://github.com/marks/streamlit-airtable-connection
-graphviz>=0.20.1 # for explore - base schema viz
-langchain>=0.0.202 # for explore - ai
-openai>=0.27.7 # for explore - ai
-tabulate>=0.9.0 # for explore - ai
-protobuf<=3.20.3 
-streamlit
-httpx-oauth
-python-dotenv
-typing_extensions
+
+graphviz==0.20.1
+langchain==0.0.267
+numpy==1.23.5
+pandas==1.5.2
+pyairtable==2.0.0
+python-dotenv==1.0.0
+resend==0.5.2
+setuptools==56.0.0
+streamlit==1.25.0
+streamlit-airtable==0.0.2
+streamlit-modal==0.1.0
