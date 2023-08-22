@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
             params = {
                 "from": "Daydream CRM <chan@abubakr.tech>",
-                "to": ["2020ce19@student.uet.edu.pk"],
+                "to": ["changjonathan23@gmail.com"],
                 "subject": "Introduction Requested!",
                 "html": f"<strong>The user with the mail: {user_email} has requested introduction for the person with name: {name} and company: {company} </strong>",
             }
