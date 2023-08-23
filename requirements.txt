@@ -8,5 +8,5 @@ python-dotenv==1.0.0
 resend==0.5.2
 setuptools==56.0.0
 streamlit==1.25.0
-streamlit-airtable==0.0.2
+
 streamlit-modal==0.1.0
