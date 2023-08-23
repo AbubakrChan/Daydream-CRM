@@ -18,7 +18,6 @@ redirect_uri = "http://localhost:8501"
 
 st.header("Daydream CRM ")
 import streamlit as st
-from streamlit_modal import Modal
 
 import streamlit.components.v1 as components
 
