@@ -5,7 +5,7 @@ import streamlit_google_oauth as oauth
 
 client_id = "1064852912425-m29ngfi8mc6bmo11crfjb99t01e93ddo.apps.googleusercontent.com"
 client_secret = "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"
-redirect_uri = ""
+redirect_uri = "https://daydream-crm-hachcfc2eygkfh27suq9y3.streamlit.app"
 
 
 if __name__ == "__main__":
