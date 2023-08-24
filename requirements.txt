@@ -10,3 +10,6 @@ setuptools==56.0.0
 streamlit==1.25.0
 httpx_oauth
 typing_extensions
+requests==2.28.1
+python-decouple==3.6
+protobuf<=3.20.3 
