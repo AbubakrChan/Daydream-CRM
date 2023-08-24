@@ -3,7 +3,6 @@ from streamlit_airtable import AirtableConnection
 import streamlit_google_oauth as oauth
 from pyairtable import Api, Base, Table, metadata
 st.set_page_config(page_title='Daydream CRM ')
-from streamlit.connections import ExperimentalBaseConnection
 from streamlit.runtime.caching import cache_data
 import pandas as pd
 import json
