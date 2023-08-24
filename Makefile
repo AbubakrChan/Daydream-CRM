@@ -3,7 +3,7 @@ PYTHON = $(VENV)/bin/python3
 PIP = $(VENV)/bin/pip
 STREAMLIT = $(VENV)/bin/streamlit
 run: $(VENV)/bin/activate
-	$(STREAMLIT) run app.py --server.port 8080
+	$(STREAMLIT) run minimal_example.py --server.port 8080
 
 
 $(VENV)/bin/activate: requirements.txt
