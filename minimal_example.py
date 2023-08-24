@@ -14,7 +14,7 @@ import numpy as np
 
 client_id = "1064852912425-m29ngfi8mc6bmo11crfjb99t01e93ddo.apps.googleusercontent.com"
 client_secret = "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"
-redirect_uri = "http://localhost:8501"
+redirect_uri = "https://daydream-crm.streamlit.app"
 
 st.header("Daydream CRM ")
 import streamlit as st
