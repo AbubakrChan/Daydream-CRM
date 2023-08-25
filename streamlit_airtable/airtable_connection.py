@@ -3,16 +3,18 @@ from streamlit.runtime.caching import cache_data
 
 from pyairtable import Api, Base, Table, metadata
 import pandas as pd
-
+personal_access_token = "patHh4EcYQJLn3TSU.9ca171ee391503be7e61b8d460f38c5be132589ef14399cbc2ae499bf26e7d33"
+base_id = "apppCfsjP6FjT1gLQ" # optional
+table_id = "tbl8bOtqkQgbPFzC1" # optional
 
 class AirtableConnection(ExperimentalBaseConnection[Base]):
     """Basic st.experimental_connection implementation for DuckDB"""
 
     # Establish a connection to Airtable using personal access token and base ID
     def _connect(self, **kwargs) -> Base:
-        personal_access_token = self._secrets["personal_access_token"]
-        self.base_id = self._secrets.get("base_id", None)
-        self.table_id = self._secrets.get("table_id", None)
+
+        self.base_id = base_id
+        self.table_id = table_id
         return Api(personal_access_token)
 
     # List bases (the personal access token has access to)
