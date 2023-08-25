@@ -11,8 +11,12 @@ import numpy as np
 
 
 
-client_id = "1064852912425-m29ngfi8mc6bmo11crfjb99t01e93ddo.apps.googleusercontent.com"
-client_secret = "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"
+# client_id = "1064852912425-m29ngfi8mc6bmo11crfjb99t01e93ddo.apps.googleusercontent.com"
+# client_secret = "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"
+# redirect_uri = "https://daydreamcrm.streamlit.app"
+
+client_id = "668509845564-bghp9rgr3uo685tpr5s3bpqcub8d8nct.apps.googleusercontent.com"
+client_secret = "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"
 redirect_uri = "https://daydreamcrm.streamlit.app"
 
 st.header("Daydream CRM ")
