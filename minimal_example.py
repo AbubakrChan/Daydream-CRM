@@ -120,10 +120,10 @@ if __name__ == "__main__":
 
             import resend
 
-            resend.api_key = "re_eU6ku1aN_KXqc4Sos21xBHHEw4pY2jfds"
+            resend.api_key = "re_DhzUNqda_H5Wag2L1YMAJLtxbzjHc8wzx"
 
             params = {
-                "from": "Daydream CRM <chan@abubakr.tech>",
+                "from": "Daydream CRM <jonathan@daydreamvc.com>",
                 "to": ["changjonathan23@gmail.com"],
                 "subject": "Introduction Requested!",
                 "html": f"<strong>The user with the mail: {user_email} has requested introduction for the person with name: {name} and company: {company} </strong>",
