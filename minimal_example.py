@@ -137,7 +137,7 @@ if __name__ == "__main__":
 
             email = resend.Emails.send(params)
             params = {
-                "from": "Daydream CRM <chan@abubakr.tech>",
+                "from": "Daydream CRM <jonathan@daydreamvc.com>>",
                 "to": [user_email],
                 "subject": "Introduction Requested!",
                 "html": f"<strong> Your Intro to the person with name: {name} and company: {company} is being worked on by the Daydream Team.</strong>",
